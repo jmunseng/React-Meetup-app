@@ -35,7 +35,7 @@ export async function getStaticPaths() {
   client.close();
 
   return {
-    fallback: false, //false的意思是 包括所有meetupId的values// 这时如果有m3 id的网页 就会出现404页面
+    fallback: "blocking", //false的意思是 包括所有meetupId的values// 这时如果有m3 id的网页 就会出现404页面
     paths: meetups.map((e) => ({ params: { meetupId: e._id.toString() } })), //URL 部分
   };
 }
